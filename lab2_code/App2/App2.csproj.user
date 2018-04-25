@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SmallTileSource>C:\Users\zhangxiaofan\Pictures\drawable-nodpi-v4\aex_paper.png</SmallTileSource>
+    <Source>C:\Users\zhangxiaofan\Pictures\drawable-nodpi-v4\aex_paper.png</Source>
+    <MediumTileSource>C:\Users\zhangxiaofan\Pictures\drawable-nodpi-v4\aex_paper.png</MediumTileSource>
+    <WideTileSource>C:\Users\zhangxiaofan\Pictures\drawable-nodpi-v4\aex_paper.png</WideTileSource>
+    <LargeTileSource>C:\Users\zhangxiaofan\Pictures\drawable-nodpi-v4\aex_paper.png</LargeTileSource>
+    <AppIconSource>C:\Users\zhangxiaofan\Pictures\drawable-nodpi-v4\aex_paper.png</AppIconSource>
+    <SplashScreenSource>C:\Users\zhangxiaofan\Pictures\drawable-nodpi-v4\aex_paper.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\zhangxiaofan\Pictures\drawable-nodpi-v4\aex_paper.png</PackageLogoSource>
+  </PropertyGroup>
+</Project>
