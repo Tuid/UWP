@@ -1,0 +1,1 @@
+D:\vs2017_work\MediaPlayer\MediaPlayer\MediaPlayer.csproj;x86

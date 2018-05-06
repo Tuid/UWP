@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="MediaPlayer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MediaPlayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <StackPanel>
+                <Button Content="home" Width="60" />
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height ="60"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" x:Name="title" Text="MediaPlayer" Width="500" HorizontalAlignment="Left" FontStyle="Normal"  VerticalAlignment="Stretch" FontSize="36"/>
+            </Grid>
+            <MediaPlayerElement Grid.Row="1" x:Name="mediaPlayerElement"   HorizontalAlignment="Center"     AutoPlay="False" AreTransportControlsEnabled="False" VerticalAlignment="Center" />
+            <Ellipse Grid.Row="1" x:Name="cover" Width="200" Height="200" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <CompositeTransform/>
+                </Ellipse.RenderTransform>
+                <Ellipse.Resources>
+                    <Storyboard x:Name="coverStoryboard" RepeatBehavior="Forever">
+                        <DoubleAnimation Duration="0:0:20" To="360" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="cover"/>
+                    </Storyboard>
+                </Ellipse.Resources>
+                <!--这是用一张图片来填充这个椭圆形-->
+                <Ellipse.Fill>
+                    <ImageBrush x:Name="picture" ImageSource="Assets/favicon.jpg" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+                <Slider Grid.Column="0" x:Name="mediaSlider" HorizontalAlignment="Center" Height="48" Width="800"  VerticalAlignment="Center"  ValueChanged="mediaSliderValueChanged"/>
+                <TextBlock Grid.Column="1"  x:Name="recordSeconds" Text="0s" FontSize="36" TextWrapping="NoWrap" />
+            </Grid>
+        </Grid>
+
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar >
+            <AppBarButton Name="slowButton" Icon="Back" Click="slowClick" />
+            <AppBarButton Name="playPauseButton" Icon="Play" Click="PlayPauseClick"  />
+            <AppBarButton Name="quickButton" Icon="Forward" Click="quickClick" />
+            <AppBarButton Name="restartButton" Icon="Refresh"  Click="RestartClick" />
+            <AppBarButton Name="mediaButton" Icon="Scan" IsCompact="True" Click="SliderFatherClick">
+                <FlyoutBase.AttachedFlyout>
+                    <Flyout>
+                        <Slider x:Name="mediaSlider1"  Orientation="Horizontal"  Height="35" Width="100"  ValueChanged="mediaSliderValueChanged" />
+                    </Flyout>
+                </FlyoutBase.AttachedFlyout>
+            </AppBarButton>
+            <AppBarButton x:Name="Volume" Icon="Volume"   IsCompact="True" Click="SliderFatherClick">
+                <FlyoutBase.AttachedFlyout>
+                    <Flyout>
+                        <Slider x:Name="volumeSlider" Orientation="Vertical"  Height="100" Width="35"  ValueChanged="volumeSliderValueChanged"  />
+                    </Flyout>
+                </FlyoutBase.AttachedFlyout>
+            </AppBarButton>
+            <AppBarButton Name="openFileButton" Icon="OpenFile" Click="OpenFileClick" />
+            <AppBarButton Name="fullScreenButton" Icon="FullScreen" Click="FullScreenClick" />
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
